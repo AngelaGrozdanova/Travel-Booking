@@ -17,15 +17,15 @@ const Newsletter = () => {
                 <button className="btn newsletter__btn">Subscribe</button>
               </div>
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Sapiente eaque ullam quis voluptas tenetur autem id ad illo
-                tempora quo nemo.
+                Sign up to receive exclusive travel insights, in-depth
+                destination guides, expert tips, and special deals—everything
+                you need to plan your next unforgettable adventure!
               </p>
             </div>
           </Col>
           <Col lg="6">
             <div className="newsletter__img">
-                <img src={maleTourist} alt="" />
+              <img src={maleTourist} alt="" />
             </div>
           </Col>
         </Row>

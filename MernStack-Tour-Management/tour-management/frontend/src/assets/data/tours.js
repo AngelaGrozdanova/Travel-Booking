@@ -12,10 +12,10 @@ const tours = [
     title: "Westminister Bridge",
     city: "London",
     distance: 300,
-    address: 'Somewhere',
+    address: "Somewhere",
     price: 99,
     maxGroupSize: 10,
-    desc: "this is the description",
+    desc: "Visit the iconic Westminster Bridge, offering stunning views of the Houses of Parliament and Big Ben. A must-see landmark in London.",
     reviews: [
       {
         name: "jhon doe",
@@ -35,10 +35,10 @@ const tours = [
     title: "Bali, Indonesia",
     city: "Indonesia",
     distance: 400,
-    address: 'Somewhere',
+    address: "Somewhere",
     price: 99,
     maxGroupSize: 8,
-    desc: "this is the description",
+    desc: "Explore the beautiful island of Bali, known for its lush landscapes, temples, and vibrant culture. A tropical paradise awaits.",
     reviews: [
       {
         name: "jhon doe",
@@ -54,10 +54,10 @@ const tours = [
     title: "Snowy Mountains, Thailand",
     city: "Thailand",
     distance: 500,
-    address: 'Somewhere',
+    address: "Somewhere",
     price: 99,
     maxGroupSize: 8,
-    desc: "this is the description",
+    desc: "Discover the breathtaking beauty of Thailand's snowy mountain ranges. Perfect for nature lovers seeking adventure and tranquility.",
     reviews: [
       {
         name: "jhon doe",
@@ -73,10 +73,10 @@ const tours = [
     title: "Beautiful Sunrise, Thailand",
     city: "Thailand",
     distance: 500,
-    address: 'Somewhere',
+    address: "Somewhere",
     price: 99,
     maxGroupSize: 8,
-    desc: "this is the description",
+    desc: "Catch the most beautiful sunrise over the stunning beaches of Phuket. An experience that will leave you in awe of nature's beauty.",
     reviews: [
       {
         name: "jhon doe",
@@ -92,10 +92,10 @@ const tours = [
     title: "Nusa Pendia Bali, Indonesia",
     city: "Indonesia",
     distance: 500,
-    address: 'Somewhere',
+    address: "Somewhere",
     price: 99,
     maxGroupSize: 8,
-    desc: "this is the description",
+    desc: "Visit the breathtaking Nusa Pendia in Bali, famous for its crystal-clear waters, dramatic cliffs, and pristine beaches.",
     reviews: [
       {
         name: "jhon doe",
@@ -111,10 +111,10 @@ const tours = [
     title: "Cherry Blossoms Spring",
     city: "Japan",
     distance: 500,
-    address: 'Somewhere',
+    address: "Somewhere",
     price: 99,
     maxGroupSize: 8,
-    desc: "this is the description",
+    desc: "Experience the beauty of cherry blossoms in full bloom during spring in Tokyo. A magical season that transforms the city into a sea of pink.",
     reviews: [
       {
         name: "jhon doe",
@@ -130,10 +130,10 @@ const tours = [
     title: "Holmen Lofoten",
     city: "France",
     distance: 500,
-    address: 'Somewhere',
+    address: "Somewhere",
     price: 99,
     maxGroupSize: 8,
-    desc: "this is the description",
+    desc: "Discover the enchanting Holmen Lofoten in France, known for its rugged landscapes, pristine beaches, and dramatic mountain views.",
     reviews: [],
     avgRating: 4.5,
     photo: tourImg07,
@@ -144,10 +144,10 @@ const tours = [
     title: "Snowy Mountains, Thailand",
     city: "Thailand",
     distance: 500,
-    address: 'Somewhere',
+    address: "Somewhere",
     price: 99,
     maxGroupSize: 8,
-    desc: "this is the description",
+    desc: "Explore the majestic snowy mountains of Thailand, perfect for outdoor enthusiasts and those seeking peace amidst nature.",
     reviews: [],
     avgRating: 4.5,
     photo: tourImg03,

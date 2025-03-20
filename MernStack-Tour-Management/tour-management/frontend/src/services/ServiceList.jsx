@@ -10,17 +10,17 @@ const servicesData = [
   {
     imgUrl: weatherImg,
     title: "Calculate Weather",
-    desc: "Lorem ipsum sit amet, consectetur adipisicing elit.",
+    desc: "Get real-time weather updates to plan your trip with confidence.",
   },
   {
     imgUrl: guideImg,
     title: "Best Tour Guide",
-    desc: "Lorem ipsum sit amet, consectetur adipisicing elit.",
+    desc: "Explore destinations with expert guides for an immersive experience.",
   },
   {
     imgUrl: customizationImg,
     title: "Customization",
-    desc: "Lorem ipsum sit amet, consectetur adipisicing elit.",
+    desc: "Tailor your journey to match your preferences for a perfect getaway.",
   },
 ];
 
@@ -28,7 +28,7 @@ const ServiceList = () => {
   return (
     <>
       {servicesData.map((item, index) => (
-        <Col lg="3" key={index}>
+        <Col lg="3" md="6" sm="12" className="mb-4" key={index}>
           <ServiceCard item={item} />
         </Col>
       ))}

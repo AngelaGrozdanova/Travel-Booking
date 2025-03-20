@@ -37,61 +37,61 @@ const Testimonials = () => {
     <Slider {...settings}>
       <div className="testimonial py-4 px-3">
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas ex,
-          possimus sed blanditiis, rerum ipsum enim dolor delectus cum ratione
-          deleniti facere! Numquam accusantium at facilis ipsa dolor magnam a!
+          "Booking my trip through this platform was the best decision! The
+          seamless experience, detailed itineraries, and local tips helped me
+          explore the breathtaking beaches of Bali like never before."
         </p>
 
         <div className="d-flex align-items-center gap-4 mt-3">
           <img src={ava01} className="w-25 h-25 rounded-2" alt="" />
           <div>
             <h6 className="mb-0 mt-3">John Doe</h6>
-            <p>Customer</p>
+            <p>Traveler</p>
           </div>
         </div>
       </div>
       <div className="testimonial py-4 px-3">
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas ex,
-          possimus sed blanditiis, rerum ipsum enim dolor delectus cum ratione
-          deleniti facere! Numquam accusantium at facilis ipsa dolor magnam a!
+          "From the vibrant streets of Tokyo to the serene temples of Kyoto,
+          this website made my journey unforgettable. The insider guides and
+          hotel recommendations were spot on!"
         </p>
 
         <div className="d-flex align-items-center gap-4 mt-3">
           <img src={ava02} className="w-25 h-25 rounded-2" alt="" />
           <div>
             <h6 className="mb-0 mt-3">Lia Franklin</h6>
-            <p>Customer</p>
+            <p>Adventure Seeker</p>
           </div>
         </div>
       </div>
       <div className="testimonial py-4 px-3">
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas ex,
-          possimus sed blanditiis, rerum ipsum enim dolor delectus cum ratione
-          deleniti facere! Numquam accusantium at facilis ipsa dolor magnam a!
+          "Exploring the Swiss Alps was a dream come true, and this site helped
+          me plan everything effortlessly. From scenic train rides to cozy
+          mountain lodges, it was simply magical!"
         </p>
 
         <div className="d-flex align-items-center gap-4 mt-3">
           <img src={ava03} className="w-25 h-25 rounded-2" alt="" />
           <div>
             <h6 className="mb-0 mt-3">John Doe</h6>
-            <p>Customer</p>
+            <p>Nature Enthusiast</p>
           </div>
         </div>
       </div>
       <div className="testimonial py-4 px-3">
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas ex,
-          possimus sed blanditiis, rerum ipsum enim dolor delectus cum ratione
-          deleniti facere! Numquam accusantium at facilis ipsa dolor magnam a!
+          "I always wanted to explore Santorini, and thanks to this platform, I
+          found the best spots to watch the sunset, hidden local restaurants,
+          and charming boutique hotels. Highly recommend!"
         </p>
 
         <div className="d-flex align-items-center gap-4 mt-3">
           <img src={ava02} className="w-25 h-25 rounded-2" alt="" />
           <div>
             <h6 className="mb-0 mt-3">Lia Franklin</h6>
-            <p>Customer</p>
+            <p>Luxury Traveler</p>
           </div>
         </div>
       </div>

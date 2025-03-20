@@ -32,10 +32,10 @@ const Home = () => {
                   <span className="highlight"> memories</span>
                 </h1>
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Excepturi ullam autem dignissimos culpa nihil hic delectus
-                  reprehenderit debitis at cum quasi, modi ex cumque, ad
-                  similique, quia placeat quibusdam est.
+                  Explore stunning destinations, immerse yourself in diverse
+                  cultures, and craft memories that last a lifetime. Let us
+                  guide you in planning the ultimate journey: one filled with
+                  excitement, discovery, and relaxation.
                 </p>
               </div>
             </Col>
@@ -46,7 +46,7 @@ const Home = () => {
               </div>
             </Col>
             <Col lg="2">
-              <div className="hero__img-box mt-4">
+              <div className="hero__img-box hero__video-box mt-4">
                 <video src={heroVideo} alt="" controls />
               </div>
             </Col>
@@ -95,9 +95,11 @@ const Home = () => {
                   With our all experience <br /> we will serve you
                 </h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Trust our experience to provide you with seamless,
+                  well-organized trips that will leave you speechless.
                   <br />
-                  Ques aliquam, hic tempora inventore suscipit unde.
+                  Explore the world with us and create stories worth sharing for
+                  a lifetime!
                 </p>
               </div>
 
@@ -111,7 +113,7 @@ const Home = () => {
                   <h6>Regular clients</h6>
                 </div>
                 <div className="counter__box">
-                  <span>15</span>
+                  <span>2</span>
                   <h6>Years experience</h6>
                 </div>
               </div>

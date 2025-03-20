@@ -2,11 +2,11 @@
   {
     "title": "Westminister Bridge",
     "city": "London",
-    "address": "Somewhere in London",
+    "address": "London",
     "distance": 300,
     "price": 99,
     "maxGroupSize": 10,
-    "desc": "this is the description",
+    "desc": "Visit the iconic Westminster Bridge, offering stunning views of the Houses of Parliament and Big Ben. A must-see landmark in London.",
     "reviews": [],
 
     "photo": "/tour-images/tour-img01.jpg",
@@ -15,11 +15,11 @@
   {
     "title": "Bali, Indonesia",
     "city": "Bali",
-    "address": "Somewhere in Indonesia",
+    "address": "Indonesia",
     "distance": 400,
     "price": 99,
     "maxGroupSize": 8,
-    "desc": "this is the description",
+    "desc": "Explore the beautiful island of Bali, known for its lush landscapes, temples, and vibrant culture. A tropical paradise awaits.",
     "reviews": [],
 
     "photo": "/tour-images/tour-img02.jpg",
@@ -28,11 +28,11 @@
   {
     "title": "Beautiful Snowy Mountains",
     "city": "Bangkok",
-    "address": "Somewhere in Thailand",
+    "address": "Thailand",
     "distance": 500,
     "price": 99,
     "maxGroupSize": 8,
-    "desc": "this is the description",
+    "desc": "Discover the breathtaking beauty of Thailand's snowy mountain ranges. Perfect for nature lovers seeking adventure and tranquility.",
     "reviews": [],
 
     "photo": "/tour-images/tour-img03.jpg",
@@ -41,11 +41,11 @@
   {
     "title": "Beautiful Sunrise, Thailand",
     "city": "Phuket",
-    "address": "Somewhere in Thailand",
+    "address": "Thailand",
     "distance": 500,
     "price": 99,
     "maxGroupSize": 8,
-    "desc": "this is the description",
+    "desc": "Catch the most beautiful sunrise over the stunning beaches of Phuket. An experience that will leave you in awe of nature's beauty.",
     "reviews": [],
 
     "photo": "/tour-images/tour-img04.jpg",
@@ -58,7 +58,7 @@
     "distance": 500,
     "price": 99,
     "maxGroupSize": 8,
-    "desc": "this is the description",
+    "desc": "Visit the breathtaking Nusa Pendia in Bali, famous for its crystal-clear waters, dramatic cliffs, and pristine beaches.",
     "reviews": [],
 
     "photo": "/tour-images/tour-img05.jpg",
@@ -71,7 +71,7 @@
     "distance": 500,
     "price": 99,
     "maxGroupSize": 8,
-    "desc": "this is the description",
+    "desc": "Experience the beauty of cherry blossoms in full bloom during spring in Tokyo. A magical season that transforms the city into a sea of pink.",
     "reviews": [],
 
     "photo": "/tour-images/tour-img06.jpg",
@@ -84,7 +84,7 @@
     "distance": 500,
     "price": 99,
     "maxGroupSize": 8,
-    "desc": "this is the description",
+    "desc": "Discover the enchanting Holmen Lofoten in France, known for its rugged landscapes, pristine beaches, and dramatic mountain views.",
     "reviews": [],
 
     "photo": "/tour-images/tour-img07.jpg",
@@ -97,7 +97,7 @@
     "distance": 500,
     "price": 99,
     "maxGroupSize": 8,
-    "desc": "this is the description",
+    "desc": "Explore the majestic snowy mountains of Thailand, perfect for outdoor enthusiasts and those seeking peace amidst nature.",
     "reviews": [],
 
     "photo": "/tour-images/tour-img03.jpg",
@@ -110,7 +110,7 @@
     "distance": 100,
     "price": 99,
     "maxGroupSize": 5,
-    "desc": "this is the description",
+    "desc": "Jaflong in Sylhet is known for its scenic tea gardens, hills, and serene landscapes. A peaceful retreat perfect for nature lovers.",
     "reviews": [],
 
     "photo": "/tour-images/tour-img08.jpg",
@@ -123,7 +123,7 @@
     "distance": 500,
     "price": 99,
     "maxGroupSize": 8,
-    "desc": "this is the description",
+    "desc": "Cox's Bazar is home to the longest unbroken sandy beach in the world. Relax on the golden sands and enjoy the beautiful coastline.",
     "reviews": [],
 
     "photo": "/tour-images/tour-img09.jpg",
