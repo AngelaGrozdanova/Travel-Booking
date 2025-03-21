@@ -42,4 +42,25 @@ Travel Booking is a modern React.js application for booking tour and travel rese
 
 4. **Ensure Both Frontend and Backend are Running**
    - Make sure both the frontend and backend servers are running for full functionality of the app.
-
+  
+5. **Key Features:**
+ - Public Access:
+   - Homepage: Provides an overview of available tours and travel packages.
+   - Tour Catalog: Displays a comprehensive list of all available tours with filtering options.
+   - Tour Details: Offers detailed information about each tour, including itineraries, pricing, and booking options.
+   - User Authentication: Allows users to register and log in to access personalized features.
+ - User Dashboard (Private Area):
+   - Booking Management: View, create, and manage tour bookings.
+   - Review and Rating System: Leave reviews and rate tours.
+ - Search Functionality:
+   - Search Bar: Users can search for specific tours or destinations from the catalog.
+  
+6. **Technical Specifications:**
+ - Frontend:
+   - Developed using React.js for a responsive and dynamic user experience.
+   - Utilizes React Hooks and Context API for efficient state management.
+   - Incorporates client-side routing with React Router for seamless navigation.
+ - Backend:
+   - Built with Node.js and Express.js to handle API requests and server-side logic.
+   - Connects to a MongoDB database for secure storage of user data and booking information.
+   - Implements RESTful API endpoints for data retrieval and manipulation.
