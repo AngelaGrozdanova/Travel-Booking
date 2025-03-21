@@ -46,8 +46,8 @@ Travel Booking is a modern React.js application for booking tour and travel rese
 5. **Key Features:**
  - Public Access:
    - Homepage: Provides an overview of available tours and travel packages.
-   - Tour Catalog: Displays a comprehensive list of all available tours with filtering options.
-   - Tour Details: Offers detailed information about each tour, including itineraries, pricing, and booking options.
+   - Tour Catalog: Displays a comprehensive list of all available tours.
+   - Tour Details: Offers detailed information about each tour, including pricing, and booking options.
    - User Authentication: Allows users to register and log in to access personalized features.
  - User Dashboard (Private Area):
    - Booking Management: View, create, and manage tour bookings.
