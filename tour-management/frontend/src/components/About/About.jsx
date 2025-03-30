@@ -8,6 +8,7 @@ import Testimonials from "../Testimonial/Testimonials";
 import experienceImg from "../../assets/images/experience.png";
 import Subtitle from "../../shared/Subtitle";
 import CommonSection from "../../shared/CommonSection";
+import video from "../../assets/images/video-travel.mp4";
 
 const About = () => {
   return (
@@ -24,6 +25,20 @@ const About = () => {
               <ServiceList />
             </Row>
           </Container>
+        </section>
+
+        <section>
+          <video
+            src={video}
+            style={{
+              width: "90%",
+              height: "auto",
+              margin: "0 auto",
+              display: "block",
+              borderRadius: "20px",
+            }}
+            controls
+          />
         </section>
 
         <section>
