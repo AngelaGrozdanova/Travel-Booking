@@ -58,19 +58,31 @@ const Footer = () => {
                   </Link>
                 </span>
                 <span>
-                  <Link to="#">
-                    <i class="ri-github-fill"></i>
-                  </Link>
+                  <a
+                    href="https://github.com/AngelaGrozdanova?tab=repositories"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i className="ri-github-fill"></i>
+                  </a>
                 </span>
                 <span>
-                  <Link to="#">
-                    <i class="ri-facebook-circle-line"></i>
-                  </Link>
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61575052101160"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i className="ri-facebook-circle-line"></i>
+                  </a>
                 </span>
                 <span>
-                  <Link to="#">
+                  <a
+                    href="https://www.instagram.com/trave_lworld2025/?igsh=d2d3NXZ3ODI0Y2w1&fbclid=IwY2xjawJXh99leHRuA2FlbQIxMAABHXyWLgMRbSYwCUJ5zLpRGMi9gV27oTa8lg_4EmvADdFUrsPURRgpECrCDQ_aem_iLR99_mHnVTCq0ri4qw61w"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i class="ri-instagram-line"></i>
-                  </Link>
+                  </a>
                 </span>
               </div>
             </div>
