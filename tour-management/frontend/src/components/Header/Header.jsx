@@ -30,6 +30,7 @@ const Header = () => {
 
   const logout = () => {
     dispatch({ type: "LOGOUT" });
+    localStorage.removeItem("accessToken");
     navigate("/");
   };
 
@@ -80,11 +81,17 @@ const Header = () => {
             </div>
 
             <div className="nav__right d-flex align-items-center gap-4">
-              <div className="nav__btns d-flex align-items-center gap-4">
+              <div className="nav__btns d-flex align-items-center gap-3">
                 {user ? (
                   <>
-                    <h5 className="mb-0">{user.username}</h5>
-                    <Button className="btn btn-dark" onClick={logout}>
+                    <h5 className="mb-0">{user.userName}</h5>
+                    <Button
+                      color="info"
+                      onClick={() => navigate(`/edit-user/${user._id}`)}
+                    >
+                      Personal Dashboard
+                    </Button>
+                    <Button color="dark" onClick={logout}>
                       Logout
                     </Button>
                   </>
@@ -98,13 +105,6 @@ const Header = () => {
                     </Button>
                   </>
                 )}
-
-                {/* <Button className="btn secondary__btn">
-                  <Link to="/login">Login</Link>
-                </Button>
-                <Button className="btn primary__btn">
-                  <Link to="/register">Register</Link>
-                </Button> */}
               </div>
 
               <span className="mobile__menu" onClick={toggleMenu}>
