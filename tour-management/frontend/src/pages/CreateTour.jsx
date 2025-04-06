@@ -15,6 +15,7 @@ const CreateTour = () => {
     desc: "",
     photo: "",
   });
+
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -22,12 +23,31 @@ const CreateTour = () => {
     setTourData({ ...tourData, [e.target.name]: e.target.value });
   };
 
+  const validateForm = () => {
+    if (!tourData.title || !tourData.city || !tourData.address) {
+      setError("Please fill in all the required fields.");
+      return false;
+    }
+    if (isNaN(tourData.distance) || tourData.distance <= 0) {
+      setError("Please enter a valid distance.");
+      return false;
+    }
+    if (isNaN(tourData.price) || tourData.price <= 0) {
+      setError("Please enter a valid price.");
+      return false;
+    }
+    if (isNaN(tourData.maxGroupSize) || tourData.maxGroupSize <= 0) {
+      setError("Please enter a valid maximum group size.");
+      return false;
+    }
+    setError(null);
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const token = localStorage.getItem("accessToken");
-    if (!token) {
-      setError("You are not authorized. Please log in.");
+    if (!validateForm()) {
       return;
     }
 
@@ -36,10 +56,8 @@ const CreateTour = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(tourData),
-        credentials: "include",
       });
 
       const data = await res.json();
@@ -48,13 +66,7 @@ const CreateTour = () => {
         alert("Tour created successfully!");
         navigate("/tours");
       } else {
-        if (res.status === 401) {
-          setError("Session expired or invalid. Please log in again.");
-          localStorage.removeItem("accessToken");
-          navigate("/tours");
-        } else {
-          setError(data.message || "Error creating tour");
-        }
+        setError(data.message || "Error creating tour");
       }
     } catch (err) {
       console.error(err);

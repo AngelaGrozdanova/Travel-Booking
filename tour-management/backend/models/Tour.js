@@ -47,7 +47,18 @@ const tourSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+
+    likes: {
+      type: Number,
+      default: 0,
+    },
+
+    dislikes: {
+      type: Number,
+      default: 0,
+    },
   },
+
   { timestamps: true }
 );
 

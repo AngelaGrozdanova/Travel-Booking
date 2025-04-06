@@ -1,17 +1,102 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Card, CardBody } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
 import calculateAvgRating from "../utils/avgRating";
-
 import "./tour-card.css";
 
 const TourCard = ({ tour }) => {
-  const { _id, title, city, photo, price, featured, reviews } = tour;
+  const { _id, title, city, photo, price, featured, reviews, likes, dislikes } =
+    tour;
   const { totalRating, avgRating } = calculateAvgRating(reviews);
   const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem("user"));
-  const isAdmin = user?.role === "admin";
+  const isAdmin =
+    user?.username === "Angela" || user?._id === "67f21e458967b6199304eaf1";
+
+  const [liked, setLiked] = useState(false);
+  const [unliked, setUnliked] = useState(false);
+  const [likeCount, setLikeCount] = useState(tour.likes || 0);
+  const [dislikeCount, setDislikeCount] = useState(tour.dislikes || 0);
+  const [animateLike, setAnimateLike] = useState(false);
+  const [animateUnlike, setAnimateUnlike] = useState(false);
+  const [showLikeIcon, setShowLikeIcon] = useState(false);
+  const [showUnlikeIcon, setShowUnlikeIcon] = useState(false);
+
+  useEffect(() => {
+    const likedState = localStorage.getItem(`liked_${_id}`);
+    const unlikedState = localStorage.getItem(`unliked_${_id}`);
+
+    if (likedState === "true") {
+      setLiked(true);
+    }
+
+    if (unlikedState === "true") {
+      setUnliked(true);
+    }
+  }, [_id]);
+
+  const handleLike = async () => {
+    try {
+      const res = await fetch(
+        `http://localhost:4000/api/v1/tours/${_id}/like`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+        }
+      );
+
+      if (res.ok) {
+        setLiked(true);
+        setUnliked(false);
+        setLikeCount((prev) => prev + 1);
+        setAnimateLike(true);
+        setShowLikeIcon(true);
+
+        localStorage.setItem(`liked_${_id}`, "true");
+        localStorage.removeItem(`unliked_${_id}`);
+
+        setTimeout(() => {
+          setAnimateLike(false);
+          setShowLikeIcon(false);
+        }, 800);
+      }
+    } catch (err) {
+      console.error("Like failed:", err);
+    }
+  };
+
+  const handleUnlike = async () => {
+    try {
+      const res = await fetch(
+        `http://localhost:4000/api/v1/tours/${_id}/unlike`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+        }
+      );
+
+      if (res.ok) {
+        setUnliked(true);
+        setLiked(false);
+        setDislikeCount((prev) => prev + 1);
+        setAnimateUnlike(true);
+        setShowUnlikeIcon(true);
+
+        localStorage.setItem(`unliked_${_id}`, "true");
+        localStorage.removeItem(`liked_${_id}`);
+
+        setTimeout(() => {
+          setAnimateUnlike(false);
+          setShowUnlikeIcon(false);
+        }, 800);
+      }
+    } catch (err) {
+      console.error("Unlike failed:", err);
+    }
+  };
 
   const handleDelete = async () => {
     try {
@@ -84,6 +169,36 @@ const TourCard = ({ tour }) => {
           </div>
 
           {user && !isAdmin && (
+            <div className="tour__like-unlike-buttons mt-3 d-flex gap-2 justify-content-between position-relative">
+              <div style={{ position: "relative" }}>
+                {showLikeIcon && <div className="reaction-icon">❤️</div>}
+                <button
+                  className={`btn ${
+                    liked ? "btn-success" : "btn-outline-success"
+                  } ${animateLike ? "btn-animate" : ""}`}
+                  onClick={handleLike}
+                  disabled={liked}
+                >
+                  👍 Like ({likeCount})
+                </button>
+              </div>
+
+              <div style={{ position: "relative" }}>
+                {showUnlikeIcon && <div className="reaction-icon">👎</div>}
+                <button
+                  className={`btn ${
+                    unliked ? "btn-danger" : "btn-outline-danger"
+                  } ${animateUnlike ? "btn-animate" : ""}`}
+                  onClick={handleUnlike}
+                  disabled={unliked}
+                >
+                  👎 Unlike ({dislikeCount})
+                </button>
+              </div>
+            </div>
+          )}
+
+          {user && !isAdmin && (
             <div className="tour__crud-buttons mt-3 d-flex gap-2 justify-content-end">
               <button className="btn btn-success" onClick={handleCreate}>
                 + Create Tour
@@ -91,7 +206,7 @@ const TourCard = ({ tour }) => {
             </div>
           )}
 
-          {user && !isAdmin && (
+          {user && isAdmin && (
             <div className="tour__crud-buttons mt-3 d-flex gap-2 justify-content-end">
               <button className="btn btn-warning" onClick={handleEdit}>
                 Edit

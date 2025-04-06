@@ -157,3 +157,45 @@ export const getTourCount = async (req, res) => {
     res.status(500).json({ success: false, message: "failed to fetch" });
   }
 };
+
+export const likeTour = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const tour = await Tour.findById(id);
+    if (!tour) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Tour not found" });
+    }
+
+    tour.likes += 1;
+    await tour.save();
+
+    res.status(200).json({ success: true, message: "Tour liked!", data: tour });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Failed to like tour" });
+  }
+};
+
+export const unlikeTour = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const tour = await Tour.findById(id);
+    if (!tour) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Tour not found" });
+    }
+
+    tour.dislikes += 1;
+    await tour.save();
+
+    res
+      .status(200)
+      .json({ success: true, message: "Tour unliked!", data: tour });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Failed to unlike tour" });
+  }
+};
