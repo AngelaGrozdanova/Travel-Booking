@@ -82,3 +82,9 @@
   font-weight: 700 !important;
   font-size: 1.1rem !important;
 }
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}

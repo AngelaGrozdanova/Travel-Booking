@@ -1,16 +1,13 @@
 import React, { useState, useContext } from "react";
 import "./booking.css";
 import { Form, FormGroup, ListGroup, ListGroupItem, Button } from "reactstrap";
-
 import { useNavigate } from "react-router-dom";
-
 import { AuthContext } from "../../context/AuthContext";
 import { BASE_URL } from "../../utils/config";
 
 const Booking = ({ tour, avgRating }) => {
   const { price, reviews, title } = tour;
   const navigate = useNavigate();
-
   const { user } = useContext(AuthContext);
 
   const [booking, setBooking] = useState({
@@ -23,8 +20,46 @@ const Booking = ({ tour, avgRating }) => {
     bookAt: "",
   });
 
+  const [errors, setErrors] = useState({
+    fullName: "",
+    phone: "",
+    guestSize: "",
+    bookAt: "",
+  });
+
   const handleChange = (e) => {
     setBooking((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  const validateForm = () => {
+    let formErrors = {};
+    let valid = true;
+
+    if (!booking.fullName.trim()) {
+      formErrors.fullName = "Full name is required";
+      valid = false;
+    }
+
+    const phoneRegex = /^[0-9]{10}$/;
+    if (!phoneRegex.test(booking.phone)) {
+      formErrors.phone = "Please enter a valid phone number (10 digits)";
+      valid = false;
+    }
+
+    if (booking.guestSize < 1) {
+      formErrors.guestSize = "Guest size must be at least 1";
+      valid = false;
+    }
+
+    const selectedDate = new Date(booking.bookAt);
+    const currentDate = new Date();
+    if (selectedDate <= currentDate) {
+      formErrors.bookAt = "Please select a future date";
+      valid = false;
+    }
+
+    setErrors(formErrors);
+    return valid;
   };
 
   const serviceFee = 10;
@@ -33,6 +68,10 @@ const Booking = ({ tour, avgRating }) => {
 
   const handleClick = async (e) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
 
     console.log(booking);
 
@@ -69,7 +108,7 @@ const Booking = ({ tour, avgRating }) => {
         </h3>
 
         <span className="tour__rating d-flex align-items-center">
-          <i class="ri-star-fill"></i>
+          <i className="ri-star-fill"></i>
           {avgRating === 0 ? null : avgRating} ({reviews?.length})
         </span>
       </div>
@@ -85,6 +124,7 @@ const Booking = ({ tour, avgRating }) => {
               required
               onChange={handleChange}
             />
+            {errors.fullName && <p className="error">{errors.fullName}</p>}
           </FormGroup>
           <FormGroup>
             <input
@@ -94,6 +134,7 @@ const Booking = ({ tour, avgRating }) => {
               required
               onChange={handleChange}
             />
+            {errors.phone && <p className="error">{errors.phone}</p>}
           </FormGroup>
           <FormGroup className="d-flex align-items-center gap-3">
             <input
@@ -103,6 +144,7 @@ const Booking = ({ tour, avgRating }) => {
               required
               onChange={handleChange}
             />
+            {errors.bookAt && <p className="error">{errors.bookAt}</p>}
             <input
               type="number"
               placeholder="Guest"
@@ -110,6 +152,7 @@ const Booking = ({ tour, avgRating }) => {
               required
               onChange={handleChange}
             />
+            {errors.guestSize && <p className="error">{errors.guestSize}</p>}
           </FormGroup>
         </Form>
       </div>
@@ -118,7 +161,7 @@ const Booking = ({ tour, avgRating }) => {
         <ListGroup>
           <ListGroupItem className="border-0 px-0">
             <h5 className="d-flex align-items-center gap-1">
-              ${price} <i class="ri-close-line"></i> 1 person
+              ${price} <i className="ri-close-line"></i> 1 person
             </h5>
             <span>${price}</span>
           </ListGroupItem>

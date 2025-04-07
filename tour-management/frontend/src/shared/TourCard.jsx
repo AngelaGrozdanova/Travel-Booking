@@ -18,62 +18,27 @@ const TourCard = ({ tour }) => {
   const [unliked, setUnliked] = useState(false);
   const [likeCount, setLikeCount] = useState(tour.likes || 0);
   const [dislikeCount, setDislikeCount] = useState(tour.dislikes || 0);
-  const [animateLike, setAnimateLike] = useState(false);
-  const [animateUnlike, setAnimateUnlike] = useState(false);
-  const [showLikeIcon, setShowLikeIcon] = useState(false);
-  const [showUnlikeIcon, setShowUnlikeIcon] = useState(false);
+  const [animateReaction, setAnimateReaction] = useState(false);
+  const [reactionIcon, setReactionIcon] = useState(null);
 
   useEffect(() => {
-    const fetchTourData = async () => {
-      try {
-        const res = await fetch(`http://localhost:4000/api/v1/tours/${_id}`);
-        const data = await res.json();
+    const likedState = localStorage.getItem(`liked_${_id}`);
+    const unlikedState = localStorage.getItem(`unliked_${_id}`);
 
-        if (res.ok) {
-          const { likes, dislikes } = data.data;
-          const userHasLiked = likes.includes(user?._id);
-          const userHasDisliked = dislikes.includes(user?._id);
-
-          setLiked(userHasLiked);
-          setUnliked(userHasDisliked);
-          setLikeCount(likes.length);
-          setDislikeCount(dislikes.length);
-        }
-      } catch (err) {
-        console.error("Error fetching tour data", err);
-      }
-    };
-
-    fetchTourData();
-  }, [_id, user?._id]);
-
-  const handleLike = async () => {
-    try {
-      const res = await fetch(
-        `http://localhost:4000/api/v1/tours/${_id}/like`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          credentials: "include",
-        }
-      );
-
-      if (res.ok) {
-        setLiked(true);
-        setUnliked(false);
-        setLikeCount((prev) => prev + 1);
-        setAnimateLike(true);
-        setShowLikeIcon(true);
-      }
-    } catch (err) {
-      console.error("Like failed:", err);
+    if (likedState === "true") {
+      setLiked(true);
     }
-  };
 
-  const handleUnlike = async () => {
+    if (unlikedState === "true") {
+      setUnliked(true);
+    }
+  }, [_id]);
+
+  const handleToggleReaction = async (reactionType) => {
     try {
+      const action = reactionType === "like" ? "like" : "unlike";
       const res = await fetch(
-        `http://localhost:4000/api/v1/tours/${_id}/unlike`,
+        `http://localhost:4000/api/v1/tours/${_id}/${action}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -82,14 +47,42 @@ const TourCard = ({ tour }) => {
       );
 
       if (res.ok) {
-        setUnliked(true);
-        setLiked(false);
-        setDislikeCount((prev) => prev + 1);
-        setAnimateUnlike(true);
-        setShowUnlikeIcon(true);
+        if (reactionType === "like") {
+          if (liked) {
+            setLiked(false);
+            setLikeCount((prev) => prev - 1);
+            localStorage.removeItem(`liked_${_id}`);
+          } else {
+            setLiked(true);
+            setUnliked(false);
+            setLikeCount((prev) => prev + 1);
+            localStorage.setItem(`liked_${_id}`, "true");
+            localStorage.removeItem(`unliked_${_id}`);
+          }
+          setReactionIcon(liked ? "👎" : "❤️");
+        } else if (reactionType === "unlike") {
+          if (unliked) {
+            setUnliked(false);
+            setDislikeCount((prev) => prev - 1);
+            localStorage.removeItem(`unliked_${_id}`);
+          } else {
+            setUnliked(true);
+            setLiked(false);
+            setDislikeCount((prev) => prev + 1);
+            localStorage.setItem(`unliked_${_id}`, "true");
+            localStorage.removeItem(`liked_${_id}`);
+          }
+          setReactionIcon(unliked ? "❤️" : "👎");
+        }
+
+        setAnimateReaction(true);
+        setTimeout(() => {
+          setAnimateReaction(false);
+          setReactionIcon(null);
+        }, 800);
       }
     } catch (err) {
-      console.error("Unlike failed:", err);
+      console.error("Toggle reaction failed:", err);
     }
   };
 
@@ -166,28 +159,33 @@ const TourCard = ({ tour }) => {
           {user && !isAdmin && (
             <div className="tour__like-unlike-buttons mt-3 d-flex gap-2 justify-content-between position-relative">
               <div style={{ position: "relative" }}>
-                {showLikeIcon && <div className="reaction-icon">❤️</div>}
+                {reactionIcon && (
+                  <div className="reaction-icon">{reactionIcon}</div>
+                )}
                 <button
                   className={`btn ${
                     liked ? "btn-success" : "btn-outline-success"
-                  } ${animateLike ? "btn-animate" : ""}`}
-                  onClick={handleLike}
-                  disabled={liked}
+                  } ${animateReaction ? "btn-animate" : ""}`}
+                  onClick={() => handleToggleReaction("like")}
+                  disabled={animateReaction}
                 >
-                  👍 Like ({likeCount})
+                  {liked ? `👍 Liked (${likeCount})` : `👍 Like (${likeCount})`}
                 </button>
               </div>
-
               <div style={{ position: "relative" }}>
-                {showUnlikeIcon && <div className="reaction-icon">👎</div>}
+                {reactionIcon && (
+                  <div className="reaction-icon">{reactionIcon}</div>
+                )}
                 <button
                   className={`btn ${
                     unliked ? "btn-danger" : "btn-outline-danger"
-                  } ${animateUnlike ? "btn-animate" : ""}`}
-                  onClick={handleUnlike}
-                  disabled={unliked}
+                  } ${animateReaction ? "btn-animate" : ""}`}
+                  onClick={() => handleToggleReaction("unlike")}
+                  disabled={animateReaction}
                 >
-                  👎 Unlike ({dislikeCount})
+                  {unliked
+                    ? `👎 Unliked (${dislikeCount})`
+                    : `👎 Unlike (${dislikeCount})`}
                 </button>
               </div>
             </div>
