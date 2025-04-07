@@ -24,17 +24,28 @@ const TourCard = ({ tour }) => {
   const [showUnlikeIcon, setShowUnlikeIcon] = useState(false);
 
   useEffect(() => {
-    const likedState = localStorage.getItem(`liked_${_id}`);
-    const unlikedState = localStorage.getItem(`unliked_${_id}`);
+    const fetchTourData = async () => {
+      try {
+        const res = await fetch(`http://localhost:4000/api/v1/tours/${_id}`);
+        const data = await res.json();
 
-    if (likedState === "true") {
-      setLiked(true);
-    }
+        if (res.ok) {
+          const { likes, dislikes } = data.data;
+          const userHasLiked = likes.includes(user?._id);
+          const userHasDisliked = dislikes.includes(user?._id);
 
-    if (unlikedState === "true") {
-      setUnliked(true);
-    }
-  }, [_id]);
+          setLiked(userHasLiked);
+          setUnliked(userHasDisliked);
+          setLikeCount(likes.length);
+          setDislikeCount(dislikes.length);
+        }
+      } catch (err) {
+        console.error("Error fetching tour data", err);
+      }
+    };
+
+    fetchTourData();
+  }, [_id, user?._id]);
 
   const handleLike = async () => {
     try {
@@ -53,14 +64,6 @@ const TourCard = ({ tour }) => {
         setLikeCount((prev) => prev + 1);
         setAnimateLike(true);
         setShowLikeIcon(true);
-
-        localStorage.setItem(`liked_${_id}`, "true");
-        localStorage.removeItem(`unliked_${_id}`);
-
-        setTimeout(() => {
-          setAnimateLike(false);
-          setShowLikeIcon(false);
-        }, 800);
       }
     } catch (err) {
       console.error("Like failed:", err);
@@ -84,14 +87,6 @@ const TourCard = ({ tour }) => {
         setDislikeCount((prev) => prev + 1);
         setAnimateUnlike(true);
         setShowUnlikeIcon(true);
-
-        localStorage.setItem(`unliked_${_id}`, "true");
-        localStorage.removeItem(`liked_${_id}`);
-
-        setTimeout(() => {
-          setAnimateUnlike(false);
-          setShowUnlikeIcon(false);
-        }, 800);
       }
     } catch (err) {
       console.error("Unlike failed:", err);
