@@ -49,6 +49,7 @@ Travel Booking is a modern React.js application for booking tour and travel rese
    - Tour Catalog: Comprehensive list of all available tours.
    - Tour Details: Detailed information about each tour, including pricing and booking options.
    - User Authentication: Users can register and log in to access personalized features.
+   - Route Guards: Unauthenticated users are restricted from accessing private routes like booking and creating tours.
  - Authenticated User Features
    - Dashboard: Logged-in users can access a private dashboard where they can view their username, email, and password.
    - Profile Management: Users can update or delete their own account information.
@@ -56,6 +57,7 @@ Travel Booking is a modern React.js application for booking tour and travel rese
    - Tour Booking: Ability to book travel destinations directly from the platform.
    - Create New Tour: Authenticated users have the option to create new tour entries.
    - Like/Dislike Tours: Logged-in users can like or dislike tours to provide quick feedback.
+   - Redirect Logic: Logged-in users are automatically redirected away from login/register pages to prevent unnecessary access.
  - Admin Features
    - Edit Tours: Admin can edit any tour's information.
    - Delete Tours: Admin can delete any tour from the platform.
@@ -69,8 +71,14 @@ Travel Booking is a modern React.js application for booking tour and travel rese
  - Frontend:
    - React.js: For a responsive and dynamic user interface.
    - React Hooks & Context API: Efficient state management and data flow.
+   - Component-Based Structure: Codebase is modularized into reusable components for maintainability.
    - React Router: Client-side routing for smooth navigation between pages.
+   - Lifecycle Methods: Components utilize mounting, updating, and unmounting phases using hooks like useEffect.
+   - Bound Forms: Forms are fully controlled and tied to component state.
+   - Synthetic Events: React's event system is used for managing form submissions and UI interactions.
+   - External CSS Files: Used for styling components and pages consistently.
  - Backend:
    - Node.js & Express.js: Handle API requests and business logic.
    - MongoDB: Store and manage user data, tour details, bookings, and reviews securely.
+   - Data Validation & Error Handling: Input data is validated and errors are gracefully handled to prevent crashes.
    - RESTful API: Clean and structured endpoints for frontend-backend communication.
