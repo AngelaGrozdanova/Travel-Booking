@@ -52,7 +52,7 @@ Travel Booking is a modern React.js application for booking tour and travel rese
    - Route Guards: Unauthenticated users are restricted from accessing private routes like booking and creating tours.
  - Authenticated User Features
    - Dashboard: Logged-in users can access a private dashboard where they can view their username, email, and password.
-   - Profile Management: Users can update or delete their own account information.
+   - Profile Management: Users can update or delete their account information, including their email address. For security reasons, it is not recommended to change your password, as it is securely hashed and will not be saved if modified.
    - Review & Rating System: Logged-in users can leave reviews and provide ratings for tours.
    - Tour Booking: Ability to book travel destinations directly from the platform.
    - Create New Tour: Authenticated users have the option to create new tour entries.
