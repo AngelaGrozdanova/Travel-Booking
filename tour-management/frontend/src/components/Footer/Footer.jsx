@@ -47,14 +47,14 @@ const Footer = () => {
             <div className="logo">
               <img src={logo} alt="" />
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Accusamus, illo impedit!
+                Here you will find a variety of tourist offers that will help
+                you make your travels unforgettable.
               </p>
 
               <div className="social__links d-flex align-items-center gap-4">
                 <span>
                   <Link to="#">
-                    <i class="ri-youtube-line"></i>
+                    <i className="ri-youtube-line"></i>
                   </Link>
                 </span>
                 <span>
@@ -81,7 +81,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <i class="ri-instagram-line"></i>
+                    <i className="ri-instagram-line"></i>
                   </a>
                 </span>
               </div>
@@ -123,7 +123,7 @@ const Footer = () => {
                   Address:
                 </h6>
 
-                <p className="mb-0">Sylhet, Bangladesh</p>
+                <p className="mb-0">Blagoevgead, Bulgaria</p>
               </ListGroupItem>
               <ListGroupItem className="ps-0 border-0 d-flex align-items-center">
                 <h6 className="mb-0 d-flex align-items-center gap-2">
