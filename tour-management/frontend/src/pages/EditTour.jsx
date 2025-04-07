@@ -9,6 +9,7 @@ const EditTour = () => {
     city: "",
     price: "",
     photo: "",
+    desc: "",
   });
 
   useEffect(() => {
@@ -113,6 +114,18 @@ const EditTour = () => {
             className="form-control"
             required
           />
+        </div>
+
+        <div className="mb-3">
+          <label>Description:</label>
+          <textarea
+            name="desc"
+            value={tourData.desc}
+            onChange={handleChange}
+            className="form-control"
+            rows="4"
+            required
+          ></textarea>
         </div>
 
         <button type="submit" className="btn btn-success">
