@@ -45,22 +45,32 @@ Travel Booking is a modern React.js application for booking tour and travel rese
   
 5. **Key Features:**
  - Public Access:
-   - Homepage: Provides an overview of available tours and travel packages.
-   - Tour Catalog: Displays a comprehensive list of all available tours.
-   - Tour Details: Offers detailed information about each tour, including pricing, and booking options.
-   - User Authentication: Allows users to register and log in to access personalized features.
- - User Dashboard (Private Area):
-   - Booking Management: View, create, and manage tour bookings.
-   - Review and Rating System: Leave reviews and rate tours.
+   - Homepage: Overview of available tours and travel packages.
+   - Tour Catalog: Comprehensive list of all available tours.
+   - Tour Details: Detailed information about each tour, including pricing and booking options.
+   - User Authentication: Users can register and log in to access personalized features.
+ - Authenticated User Features
+   - Dashboard: Logged-in users can access a private dashboard where they can view their username, email, and password.
+   - Profile Management: Users can update or delete their own account information.
+   - Review & Rating System: Logged-in users can leave reviews and provide ratings for tours.
+   - Tour Booking: Ability to book travel destinations directly from the platform.
+   - Create New Tour: Authenticated users have the option to create new tour entries.
+   - Like/Dislike Tours: Logged-in users can like or dislike tours to provide quick feedback.
+ - Admin Features
+   - Edit Tours: Admin can edit any tour's information.
+   - Delete Tours: Admin can delete any tour from the platform.
+   - Test Admin Login: You can use the following credentials to log in as an admin:
+       - Email: angelagrozdanova@abv.bg
+       - Password: angelagrozdanova
  - Search Functionality:
-   - Search Bar: Users can search for specific tours or destinations from the catalog.
+   - Search Bar: Users can search for specific tours or destinations directly from the catalog.
   
 6. **Technical Specifications:**
  - Frontend:
-   - Developed using React.js for a responsive and dynamic user experience.
-   - Utilizes React Hooks and Context API for efficient state management.
-   - Incorporates client-side routing with React Router for seamless navigation.
+   - React.js: For a responsive and dynamic user interface.
+   - React Hooks & Context API: Efficient state management and data flow.
+   - React Router: Client-side routing for smooth navigation between pages.
  - Backend:
-   - Built with Node.js and Express.js to handle API requests and server-side logic.
-   - Connects to a MongoDB database for secure storage of user data and booking information.
-   - Implements RESTful API endpoints for data retrieval and manipulation.
+   - Node.js & Express.js: Handle API requests and business logic.
+   - MongoDB: Store and manage user data, tour details, bookings, and reviews securely.
+   - RESTful API: Clean and structured endpoints for frontend-backend communication.
