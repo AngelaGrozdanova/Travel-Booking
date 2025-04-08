@@ -1,16 +1,13 @@
 import User from "../models/User.js";
-import bcrypt from "bcryptjs";
+// import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 export const register = async (req, res) => {
   try {
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(req.body.password, salt);
-
     const newUser = new User({
       username: req.body.username,
       email: req.body.email,
-      password: hash,
+      password: req.body.password,
       photo: req.body.photo,
     });
 
@@ -35,12 +32,7 @@ export const login = async (req, res) => {
         .json({ success: false, message: "User not found" });
     }
 
-    const checkCorrectPassword = await bcrypt.compare(
-      req.body.password,
-      user.password
-    );
-
-    if (!checkCorrectPassword) {
+    if (req.body.password !== user.password) {
       return res
         .status(401)
         .json({ success: false, message: "Incorrect email or password" });
