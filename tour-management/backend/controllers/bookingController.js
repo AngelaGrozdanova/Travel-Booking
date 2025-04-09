@@ -13,7 +13,7 @@ export const createBooking = async (req, res) => {
   } catch (err) {
     res.status(500).json({
       success: false,
-      message: "Internal server error",
+      message: "Something went wrong while processing your booking.",
     });
   }
 };
