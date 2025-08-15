@@ -82,3 +82,5 @@ Travel Booking is a modern React.js application for booking tour and travel rese
    - MongoDB: Store and manage user data, tour details, bookings, and reviews securely.
    - Data Validation & Error Handling: Input data is validated and errors are gracefully handled to prevent crashes.
    - RESTful API: Clean and structured endpoints for frontend-backend communication.
+  
+![Homepage](thum.png)
